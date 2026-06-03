@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #1f2937;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 30px 8%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h2 {
+  font-size: 28px;
+}
+
+#themeBtn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #1f2937;
+  color: white;
+  font-size: 18px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 100px;
+}
+
+.profile-img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.tag {
+  color: #6366f1;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 55px;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: #6366f1;
+}
+
+.intro {
+  margin: 20px 0;
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 25px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #4f46e5;
+}
+
+.about,
+.projects {
+  padding: 70px 8%;
+  text-align: center;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 15px auto;
+  line-height: 1.7;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: white;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+body.dark .project-card {
+  background: #1e293b;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+  color: #6366f1;
+}
+
+.project-card p {
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #111827;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  .profile-img {
+    width: 220px;
+    height: 220px;
+  }
+}
