@@ -2,36 +2,51 @@ const themeBtn = document.getElementById("themeBtn");
 
 themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    themeBtn.textContent = "☀️";
-  } else {
-    themeBtn.textContent = "🌙";
-  }
+  themeBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 });
 
-function autoSlider(className) {
-  let slideIndex = 0;
-  const slides = document.getElementsByClassName(className);
+const slideIndexes = {
+  blue: 0,
+  alx: 0
+};
 
-  function showSlides() {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
+function showSlide(projectName) {
+  const slides = document.querySelectorAll(`.${projectName}-slide`);
 
-    slideIndex++;
-
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-
-    setTimeout(showSlides, 2500);
-  }
-
-  showSlides();
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("active", index === slideIndexes[projectName]);
+  });
 }
 
-autoSlider("blueSlides");
-autoSlider("alxSlides");
+function changeSlide(projectName, direction) {
+  const slides = document.querySelectorAll(`.${projectName}-slide`);
+
+  slideIndexes[projectName] += direction;
+
+  if (slideIndexes[projectName] >= slides.length) {
+    slideIndexes[projectName] = 0;
+  }
+
+  if (slideIndexes[projectName] < 0) {
+    slideIndexes[projectName] = slides.length - 1;
+  }
+
+  showSlide(projectName);
+}
+
+setInterval(() => {
+  changeSlide("blue", 1);
+  changeSlide("alx", 1);
+}, 3000);
+
+function openFullscreen(img) {
+  const viewer = document.getElementById("fullscreenViewer");
+  const fullscreenImg = document.getElementById("fullscreenImg");
+
+  fullscreenImg.src = img.src;
+  viewer.classList.add("active");
+}
+
+function closeFullscreen() {
+  document.getElementById("fullscreenViewer").classList.remove("active");
+}
