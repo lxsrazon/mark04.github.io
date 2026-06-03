@@ -411,4 +411,45 @@ footer {
   .contact {
     margin-inline: 5%;
   }
+  .project-gallery {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  grid-template-rows: 125px 125px;
+  gap: 10px;
+  padding: 12px;
+}
+
+.project-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.project-gallery img:first-child {
+  grid-row: span 2;
+}
+
+.project-card:hover .project-gallery img {
+  filter: brightness(0.9);
+}
+
+.project-gallery img:hover {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+
+@media (max-width: 560px) {
+  .project-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .project-gallery img,
+  .project-gallery img:first-child {
+    height: 190px;
+    grid-row: auto;
+  }
+}
 }
